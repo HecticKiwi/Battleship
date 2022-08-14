@@ -27,4 +27,20 @@ export default class Gameboard {
   allSunk() {
     return this.ships.every((ship) => ship.isSunk());
   }
+
+  checkAvailability(length, [col, row], orientation) {
+    for (let i = 0; i < length; i++) {
+      if (this.board[col]?.[row] === undefined || this.board[col][row] instanceof Ship) {
+        return false;
+      }
+
+      if (orientation === 'horizontal') {
+        col++;
+      } else {
+        row++;
+      }
+    }
+
+    return true;
+  }
 }
