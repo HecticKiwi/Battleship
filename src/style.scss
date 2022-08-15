@@ -11,8 +11,8 @@ body {
     font-family: 'Roboto Mono', monospace;
     margin: 0;
     padding: 2rem;
-    display: grid;
-    grid-template-rows: repeat(3, min-content) 1fr min-content;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
     text-align: center;
     background: url('../dist/images/bg.svg') center/cover;
@@ -55,11 +55,11 @@ body {
 
     &__cell {
         background-color: white;
-    }
-}
 
-.gameboard__cell--highlighted {
-    background-color: darkgray;
+        &--ship {
+            background-color: darkgray;
+        }
+    }
 }
 
 .message {
@@ -67,5 +67,6 @@ body {
 }
 
 .footer {
+    margin-top: auto;
     color: white;
 }
