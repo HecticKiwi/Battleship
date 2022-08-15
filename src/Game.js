@@ -1,5 +1,6 @@
 import Gameboard from './modules/Gameboard';
 import Ship from './modules/Ship';
+import previewShipPlacement from './modules/DOM';
 
 export default class Game {
   playerGameboard = new Gameboard();
@@ -15,18 +16,18 @@ export default class Game {
 
     const cells = document.querySelectorAll('.gameboard--player .gameboard__cell');
     cells.forEach((cell) => {
+      const { col, row } = cell.dataset;
+
       cell.addEventListener('mouseenter', () => {
-        cell.classList.add('gameboard__cell--highlighted');
-        const { col, row } = cell.dataset;
-        if (this.playerGameboard.checkAvailability(ship.length, [col, row], this.orientation) === true) {
-          console.log('yes');
+        if (this.playerGameboard.cellAvailable(ship.length, [col, row], this.orientation)) {
+          previewShipPlacement(ship.length, [col, row], this.orientation, 'lightgray');
         } else {
-          console.log('no');
+          previewShipPlacement(ship.length, [col, row], this.orientation, 'lightcoral');
         }
       });
 
       cell.addEventListener('mouseleave', () => {
-        cell.classList.remove('gameboard__cell--highlighted');
+        previewShipPlacement(ship.length, [col, row], this.orientation, 'white');
       });
     });
   }

@@ -28,7 +28,7 @@ export default class Gameboard {
     return this.ships.every((ship) => ship.isSunk());
   }
 
-  checkAvailability(length, [col, row], orientation) {
+  cellAvailable(length, [col, row], orientation) {
     for (let i = 0; i < length; i++) {
       if (this.board[col]?.[row] === undefined || this.board[col][row] instanceof Ship) {
         return false;
