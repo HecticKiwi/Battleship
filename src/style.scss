@@ -7,6 +7,20 @@ a {
     text-decoration: none;
 }
 
+button {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0 auto 1rem;
+    border: 2px solid black;
+    background-color: aqua;
+    padding: .5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: dodgerblue;
+}
+
 body {
     font-family: 'Roboto Mono', monospace;
     margin: 0;
@@ -22,18 +36,8 @@ body {
     font-size: 3rem;
 }
 
-.rotate {
-    font-family: 'Roboto Mono', monospace;
-    margin: 0 auto 1rem;
-    border: 2px solid black;
-    background-color: aqua;
-    padding: .5rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-}
-
-.rotate:hover {
-    background-color: dodgerblue;
+.message {
+    font-size: 1.5rem;
 }
 
 .gameboards {
@@ -44,11 +48,10 @@ body {
 }
 
 .gameboard {
+    flex: 0 1 350px;
+    aspect-ratio: 1/1;
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    width: 350px;
-    height: 350px;
+    grid-template: repeat(10, 1fr) / repeat(10, 1fr);
     border: 2px solid black;
     gap: 2px;
     background-color: black;
@@ -60,10 +63,6 @@ body {
             background-color: darkgray;
         }
     }
-}
-
-.message {
-    font-size: 1.5rem;
 }
 
 .footer {
